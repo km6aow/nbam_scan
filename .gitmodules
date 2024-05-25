@@ -1,0 +1,3 @@
+[submodule "MeshInfo"]
+	path = MeshInfo
+	url = https://github.com/kn6plv/MeshInfo.git
