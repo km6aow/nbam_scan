@@ -2,6 +2,7 @@
 const Log = require("debug")("parse");
 
 const NBAM_FILTERS = [
+        /^ak6vb\-/i,
         /^km6y\-/i,
         /^k6gwe\-/i,
         /^nz6j\-/i,
