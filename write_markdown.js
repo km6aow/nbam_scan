@@ -49,6 +49,29 @@ module.exports = {
                 if (node.node_details.hardware) {
                     wikitable.push(`<tr><td><strong>Hardware</strong></td><td>${node.node_details.hardware}</td></tr>`);
                 }
+                if (node.meshrf && node.meshrf.mode) {
+                    wikitable.push(`<tr><td><strong>Mode</strong></td><td>`);
+                    switch (node.meshrf.mode) {
+                        case "ap":
+                            wikitable.push('Access Point');
+                            break;
+                        case 'adhoc':
+                            wikitable.push('Mesh');
+                            break;
+                        case 'sta':
+                            wikitable.push('Mesh Station');
+                            break;
+                        case 'ptp':
+                            wikitable.push('Point to Point');
+                            break;
+                        case 'ptmp':
+                            wikitable.push('Point to Multi Point');
+                            break;
+                        default:
+                            wikitable.push(`Unknown: ${node.meshrf.mode}`);
+                    }
+		    wikitable.push('</td></tr>');
+		}
                 wikitable.push('</table>');
                 fs.writeFileSync(`wiki_files/${node.node}.md`, wikitable.join("\n"));
             }
